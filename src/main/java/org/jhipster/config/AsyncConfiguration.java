@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.*;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
+import java.lang.reflect.Method;
 
 @Configuration
 @EnableAsync
@@ -41,6 +42,14 @@ public class AsyncConfiguration implements AsyncConfigurer {
 
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-        return new SimpleAsyncUncaughtExceptionHandler();
+        return new CustomAsyncUncaughtExceptionHandler();
+    }
+
+    private class CustomAsyncUncaughtExceptionHandler implements AsyncUncaughtExceptionHandler {
+
+        @Override
+        public void handleUncaughtException(Throwable ex, Method method, Object... params) {
+            log.error("Caught async exception", ex);
+        }
     }
 }
