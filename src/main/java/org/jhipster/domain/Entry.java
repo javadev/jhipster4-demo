@@ -31,7 +31,6 @@ public class Entry implements Serializable {
     private String title;
 
     @NotNull
-    @Lob
     @Column(name = "content", nullable = false)
     private String content;
 
