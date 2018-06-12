@@ -1,0 +1,6 @@
+spring:
+    datasource:
+        url: jdbc:mysql://${MYSQL_ADDON_HOST}:${MYSQL_ADDON_PORT}/${MYSQL_ADDON_DB}?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: ${MYSQL_ADDON_USER}
+        password: ${MYSQL_ADDON_PASSWORD}
+        maxActive: 5
