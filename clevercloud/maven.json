@@ -4,6 +4,6 @@
     "goal": "-Pprod package -DskipTests"
   },
   "deploy": {
-    "jarName": "./target/jhipster-0.0.1-SNAPSHOT.war"
+    "jarName": "./target/blog-0.0.1-SNAPSHOT.war"
   }
 }
